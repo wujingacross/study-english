@@ -1,6 +1,11 @@
-export const SideNavBar = () => {
+interface SideNavBarProps {
+  activeTab: string;
+  setActiveTab: (tab: string) => void;
+}
+
+export const SideNavBar = ({ activeTab, setActiveTab }: SideNavBarProps) => {
   return (
-    <aside className="hidden lg:flex fixed left-0 top-0 h-full w-64 flex-col p-4 pt-20 bg-slate-50 dark:bg-slate-950 bg-slate-100 dark:bg-slate-900 z-40">
+    <aside className="hidden lg:flex fixed left-0 top-0 h-full w-64 flex-col p-4 pt-20 bg-slate-50 dark:bg-slate-950 bg-slate-100 dark:bg-slate-900 z-40 border-r border-slate-200 dark:border-slate-800">
       <div className="px-4 mb-8">
         <div className="flex items-center gap-3 mb-2">
           <div className="w-10 h-10 rounded-xl bg-primary-gradient flex items-center justify-center text-white font-bold">
@@ -19,41 +24,51 @@ export const SideNavBar = () => {
         </button>
       </div>
       <nav className="flex-1 space-y-1">
-        <a
-          className="flex items-center gap-3 text-slate-600 dark:text-slate-400 px-4 py-3 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 transition-colors"
-          href="#"
+        <button
+          onClick={() => setActiveTab("library")}
+          className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg transition-all ${
+            activeTab === "library"
+              ? "bg-white dark:bg-slate-800 text-blue-700 dark:text-blue-300 font-semibold shadow-sm scale-[0.99]"
+              : "text-slate-600 dark:text-slate-400 hover:bg-slate-200/50 dark:hover:bg-slate-800/50"
+          }`}
         >
           <span className="material-symbols-outlined">menu_book</span>
           <span>Library</span>
-        </a>
-        <a
-          className="flex items-center gap-3 bg-white dark:bg-slate-800 text-blue-700 dark:text-blue-300 rounded-lg px-4 py-3 font-semibold shadow-sm scale-[0.99] transition-transform"
-          href="#"
+        </button>
+        <button
+          onClick={() => setActiveTab("practice")}
+          className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg transition-all ${
+            activeTab === "practice"
+              ? "bg-white dark:bg-slate-800 text-blue-700 dark:text-blue-300 font-semibold shadow-sm scale-[0.99]"
+              : "text-slate-600 dark:text-slate-400 hover:bg-slate-200/50 dark:hover:bg-slate-800/50"
+          }`}
         >
           <span className="material-symbols-outlined">mic_none</span>
           <span>Practice</span>
-        </a>
-        <a
-          className="flex items-center gap-3 text-slate-600 dark:text-slate-400 px-4 py-3 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 transition-colors"
-          href="#"
+        </button>
+        <button
+          onClick={() => setActiveTab("progress")}
+          className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg transition-all ${
+            activeTab === "progress"
+              ? "bg-white dark:bg-slate-800 text-blue-700 dark:text-blue-300 font-semibold shadow-sm scale-[0.99]"
+              : "text-slate-600 dark:text-slate-400 hover:bg-slate-200/50 dark:hover:bg-slate-800/50"
+          }`}
         >
           <span className="material-symbols-outlined">insights</span>
           <span>Progress</span>
-        </a>
-        <a
-          className="flex items-center gap-3 text-slate-600 dark:text-slate-400 px-4 py-3 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 transition-colors"
-          href="#"
+        </button>
+        <button
+          className="w-full flex items-center gap-3 text-slate-600 dark:text-slate-400 px-4 py-3 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 transition-colors"
         >
           <span className="material-symbols-outlined">topic</span>
           <span>Topics</span>
-        </a>
-        <a
-          className="flex items-center gap-3 text-slate-600 dark:text-slate-400 px-4 py-3 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 transition-colors"
-          href="#"
+        </button>
+        <button
+          className="w-full flex items-center gap-3 text-slate-600 dark:text-slate-400 px-4 py-3 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 transition-colors"
         >
           <span className="material-symbols-outlined">equalizer</span>
           <span>Levels</span>
-        </a>
+        </button>
       </nav>
       <div className="pt-4 mt-4 border-t border-outline-variant/20">
         <a

@@ -1,30 +1,47 @@
-export const TopNavBar = () => {
+interface TopNavBarProps {
+  activeTab: string;
+  setActiveTab: (tab: string) => void;
+}
+
+export const TopNavBar = ({ activeTab, setActiveTab }: TopNavBarProps) => {
   return (
-    <header className="fixed top-0 w-full z-50 bg-white/85 dark:bg-slate-900/85 backdrop-blur-md shadow-sm dark:shadow-none">
+    <header className="fixed top-0 w-full z-50 glass-header bg-white/85 dark:bg-slate-900/85 backdrop-blur-md shadow-sm dark:shadow-none">
       <nav className="flex justify-between items-center w-full px-6 py-3">
         <div className="flex items-center gap-8">
           <span className="text-xl font-bold tracking-tight text-slate-900 dark:text-slate-100">
             The Academic Editorial
           </span>
           <div className="hidden md:flex gap-6 items-center">
-            <a
-              className="font-label text-sm uppercase tracking-wider text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-300 transition-colors"
-              href="#"
+            <button
+              onClick={() => setActiveTab("library")}
+              className={`font-label text-sm uppercase tracking-wider transition-colors ${
+                activeTab === "library"
+                  ? "text-blue-700 dark:text-blue-400 font-bold border-b-2 border-blue-700"
+                  : "text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-300"
+              }`}
             >
               Library
-            </a>
-            <a
-              className="font-label text-sm uppercase tracking-wider text-blue-700 dark:text-blue-400 font-bold border-b-2 border-blue-700 transition-colors"
-              href="#"
+            </button>
+            <button
+              onClick={() => setActiveTab("practice")}
+              className={`font-label text-sm uppercase tracking-wider transition-colors ${
+                activeTab === "practice"
+                  ? "text-blue-700 dark:text-blue-400 font-bold border-b-2 border-blue-700"
+                  : "text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-300"
+              }`}
             >
               Practice
-            </a>
-            <a
-              className="font-label text-sm uppercase tracking-wider text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-300 transition-colors"
-              href="#"
+            </button>
+            <button
+              onClick={() => setActiveTab("progress")}
+              className={`font-label text-sm uppercase tracking-wider transition-colors ${
+                activeTab === "progress"
+                  ? "text-blue-700 dark:text-blue-400 font-bold border-b-2 border-blue-700"
+                  : "text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-300"
+              }`}
             >
               Progress
-            </a>
+            </button>
           </div>
         </div>
         <div className="flex items-center gap-4">
