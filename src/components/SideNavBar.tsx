@@ -20,14 +20,14 @@ export const SideNavBar = () => {
       </div>
       <nav className="flex-1 space-y-1">
         <a
-          className="flex items-center gap-3 bg-white dark:bg-slate-800 text-blue-700 dark:text-blue-300 rounded-lg px-4 py-3 font-semibold shadow-sm scale-[0.99] transition-transform"
+          className="flex items-center gap-3 text-slate-600 dark:text-slate-400 px-4 py-3 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 transition-colors"
           href="#"
         >
           <span className="material-symbols-outlined">menu_book</span>
           <span>Library</span>
         </a>
         <a
-          className="flex items-center gap-3 text-slate-600 dark:text-slate-400 px-4 py-3 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 transition-colors"
+          className="flex items-center gap-3 bg-white dark:bg-slate-800 text-blue-700 dark:text-blue-300 rounded-lg px-4 py-3 font-semibold shadow-sm scale-[0.99] transition-transform"
           href="#"
         >
           <span className="material-symbols-outlined">mic_none</span>

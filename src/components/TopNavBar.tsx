@@ -8,13 +8,13 @@ export const TopNavBar = () => {
           </span>
           <div className="hidden md:flex gap-6 items-center">
             <a
-              className="font-label text-sm uppercase tracking-wider text-blue-700 dark:text-blue-400 font-bold border-b-2 border-blue-700 transition-colors"
+              className="font-label text-sm uppercase tracking-wider text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-300 transition-colors"
               href="#"
             >
               Library
             </a>
             <a
-              className="font-label text-sm uppercase tracking-wider text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-300 transition-colors"
+              className="font-label text-sm uppercase tracking-wider text-blue-700 dark:text-blue-400 font-bold border-b-2 border-blue-700 transition-colors"
               href="#"
             >
               Practice
