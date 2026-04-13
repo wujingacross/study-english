@@ -1,3 +1,5 @@
+"use client";
+
 import { useState } from "react";
 import { TopNavBar } from "./components/TopNavBar";
 import { SideNavBar } from "./components/SideNavBar";
