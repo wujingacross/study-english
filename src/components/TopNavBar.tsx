@@ -1,4 +1,11 @@
-export const TopNavBar = () => {
+import type { PageType } from "../App";
+
+interface TopNavBarProps {
+  currentPage: PageType;
+  setCurrentPage: (page: PageType) => void;
+}
+
+export const TopNavBar = ({ currentPage, setCurrentPage }: TopNavBarProps) => {
   return (
     <header className="fixed top-0 w-full z-50 bg-white/85 dark:bg-slate-900/85 backdrop-blur-md shadow-sm dark:shadow-none">
       <nav className="flex justify-between items-center w-full px-6 py-3">
@@ -8,20 +15,35 @@ export const TopNavBar = () => {
           </span>
           <div className="hidden md:flex gap-6 items-center">
             <a
-              className="font-label text-sm uppercase tracking-wider text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-300 transition-colors"
+              className={`font-label text-sm uppercase tracking-wider transition-colors ${
+                currentPage === 'library'
+                  ? 'text-blue-700 dark:text-blue-400 font-bold border-b-2 border-blue-700'
+                  : 'text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-300'
+              }`}
               href="#"
+              onClick={(e) => { e.preventDefault(); setCurrentPage('library'); }}
             >
               Library
             </a>
             <a
-              className="font-label text-sm uppercase tracking-wider text-blue-700 dark:text-blue-400 font-bold border-b-2 border-blue-700 transition-colors"
+              className={`font-label text-sm uppercase tracking-wider transition-colors ${
+                currentPage === 'practice'
+                  ? 'text-blue-700 dark:text-blue-400 font-bold border-b-2 border-blue-700'
+                  : 'text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-300'
+              }`}
               href="#"
+              onClick={(e) => { e.preventDefault(); setCurrentPage('practice'); }}
             >
               Practice
             </a>
             <a
-              className="font-label text-sm uppercase tracking-wider text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-300 transition-colors"
+              className={`font-label text-sm uppercase tracking-wider transition-colors ${
+                currentPage === 'progress'
+                  ? 'text-blue-700 dark:text-blue-400 font-bold border-b-2 border-blue-700'
+                  : 'text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-300'
+              }`}
               href="#"
+              onClick={(e) => { e.preventDefault(); setCurrentPage('progress'); }}
             >
               Progress
             </a>
