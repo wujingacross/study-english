@@ -1,4 +1,10 @@
-export const FeaturedNews = () => {
+import type { PageType } from "../App";
+
+interface FeaturedNewsProps {
+  onNavigate: (page: PageType) => void;
+}
+
+export const FeaturedNews = ({ onNavigate }: FeaturedNewsProps) => {
   return (
     <div className="md:col-span-8 bg-surface-container-low rounded-3xl overflow-hidden relative min-h-[320px]">
       <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent z-10"></div>
@@ -15,7 +21,10 @@ export const FeaturedNews = () => {
         <p className="text-white/80 text-sm max-w-md mb-6">
           Explore the linguistic structures used by 18th-century essayists and their relevance in modern tech journalism.
         </p>
-        <button className="bg-white/20 backdrop-blur-md border border-white/30 text-white font-bold py-3 px-6 rounded-xl w-fit hover:bg-white/30 transition-all flex items-center gap-3">
+        <button
+          className="bg-white/20 backdrop-blur-md border border-white/30 text-white font-bold py-3 px-6 rounded-xl w-fit hover:bg-white/30 transition-all flex items-center gap-3"
+          onClick={() => onNavigate('practice')}
+        >
           Read Now <span className="material-symbols-outlined">arrow_right_alt</span>
         </button>
       </div>
