@@ -1,4 +1,7 @@
 import "./globals.css";
+import { TopNavBar } from "../components/TopNavBar";
+import { SideNavBar } from "../components/SideNavBar";
+import { BottomNavBar } from "../components/BottomNavBar";
 
 export const metadata = {
   title: "The Academic Editorial | Scholar Workspace",
@@ -31,7 +34,12 @@ export default function RootLayout({
         />
       </head>
       <body className="text-on-surface bg-background font-body">
+        <TopNavBar />
+        <SideNavBar />
         {children}
+        <div className="md:hidden">
+          <BottomNavBar />
+        </div>
       </body>
     </html>
   );
