@@ -1,9 +1,11 @@
-interface SideNavBarProps {
-  activeTab: string;
-  setActiveTab: (tab: string) => void;
-}
+"use client";
 
-export const SideNavBar = ({ activeTab, setActiveTab }: SideNavBarProps) => {
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+
+export const SideNavBar = () => {
+  const pathname = usePathname();
+
   return (
     <aside className="hidden lg:flex fixed left-0 top-0 h-full w-64 flex-col p-4 pt-20 bg-slate-50 dark:bg-slate-950 bg-slate-100 dark:bg-slate-900 z-40 border-r border-slate-200 dark:border-slate-800">
       <div className="px-4 mb-8">
@@ -24,39 +26,39 @@ export const SideNavBar = ({ activeTab, setActiveTab }: SideNavBarProps) => {
         </button>
       </div>
       <nav className="flex-1 space-y-1">
-        <button
-          onClick={() => setActiveTab("library")}
+        <Link
+          href="/library"
           className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg transition-all ${
-            activeTab === "library"
+            pathname === "/library"
               ? "bg-white dark:bg-slate-800 text-blue-700 dark:text-blue-300 font-semibold shadow-sm scale-[0.99]"
               : "text-slate-600 dark:text-slate-400 hover:bg-slate-200/50 dark:hover:bg-slate-800/50"
           }`}
         >
           <span className="material-symbols-outlined">menu_book</span>
           <span>Library</span>
-        </button>
-        <button
-          onClick={() => setActiveTab("practice")}
+        </Link>
+        <Link
+          href="/"
           className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg transition-all ${
-            activeTab === "practice"
+            pathname === "/" || pathname === "/practice"
               ? "bg-white dark:bg-slate-800 text-blue-700 dark:text-blue-300 font-semibold shadow-sm scale-[0.99]"
               : "text-slate-600 dark:text-slate-400 hover:bg-slate-200/50 dark:hover:bg-slate-800/50"
           }`}
         >
           <span className="material-symbols-outlined">mic_none</span>
           <span>Practice</span>
-        </button>
-        <button
-          onClick={() => setActiveTab("progress")}
+        </Link>
+        <Link
+          href="/progress"
           className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg transition-all ${
-            activeTab === "progress"
+            pathname === "/progress"
               ? "bg-white dark:bg-slate-800 text-blue-700 dark:text-blue-300 font-semibold shadow-sm scale-[0.99]"
               : "text-slate-600 dark:text-slate-400 hover:bg-slate-200/50 dark:hover:bg-slate-800/50"
           }`}
         >
           <span className="material-symbols-outlined">insights</span>
           <span>Progress</span>
-        </button>
+        </Link>
         <button
           className="w-full flex items-center gap-3 text-slate-600 dark:text-slate-400 px-4 py-3 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 transition-colors"
         >

@@ -1,9 +1,11 @@
-interface TopNavBarProps {
-  activeTab: string;
-  setActiveTab: (tab: string) => void;
-}
+"use client";
 
-export const TopNavBar = ({ activeTab, setActiveTab }: TopNavBarProps) => {
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+
+export const TopNavBar = () => {
+  const pathname = usePathname();
+
   return (
     <header className="fixed top-0 w-full z-50 glass-header bg-white/85 dark:bg-slate-900/85 backdrop-blur-md shadow-sm dark:shadow-none">
       <nav className="flex justify-between items-center w-full px-6 py-3">
@@ -12,36 +14,36 @@ export const TopNavBar = ({ activeTab, setActiveTab }: TopNavBarProps) => {
             The Academic Editorial
           </span>
           <div className="hidden md:flex gap-6 items-center">
-            <button
-              onClick={() => setActiveTab("library")}
+            <Link
+              href="/library"
               className={`font-label text-sm uppercase tracking-wider transition-colors ${
-                activeTab === "library"
+                pathname === "/library"
                   ? "text-blue-700 dark:text-blue-400 font-bold border-b-2 border-blue-700"
                   : "text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-300"
               }`}
             >
               Library
-            </button>
-            <button
-              onClick={() => setActiveTab("practice")}
+            </Link>
+            <Link
+              href="/"
               className={`font-label text-sm uppercase tracking-wider transition-colors ${
-                activeTab === "practice"
+                pathname === "/" || pathname === "/practice"
                   ? "text-blue-700 dark:text-blue-400 font-bold border-b-2 border-blue-700"
                   : "text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-300"
               }`}
             >
               Practice
-            </button>
-            <button
-              onClick={() => setActiveTab("progress")}
+            </Link>
+            <Link
+              href="/progress"
               className={`font-label text-sm uppercase tracking-wider transition-colors ${
-                activeTab === "progress"
+                pathname === "/progress"
                   ? "text-blue-700 dark:text-blue-400 font-bold border-b-2 border-blue-700"
                   : "text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-300"
               }`}
             >
               Progress
-            </button>
+            </Link>
           </div>
         </div>
         <div className="flex items-center gap-4">
