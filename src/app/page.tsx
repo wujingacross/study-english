@@ -1,11 +1,15 @@
 "use client";
 
-import { PracticeSession } from "../components/PracticeSession";
+import { HeroSection } from "../components/HeroSection";
+import { BentoGrid } from "../components/BentoGrid";
+import { AchievementCard } from "../components/AchievementCard";
 
-export default function PracticePage() {
+export default function LibraryPage() {
   return (
-    <main className="lg:ml-64 pt-24 px-6 lg:px-12 pb-12">
-      <PracticeSession />
+    <main className="lg:ml-64 pt-24 pb-12 px-6 md:px-12">
+      <HeroSection />
+      <BentoGrid />
+      <AchievementCard />
     </main>
   );
 }

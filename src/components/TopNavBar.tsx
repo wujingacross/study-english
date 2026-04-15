@@ -17,7 +17,7 @@ export const TopNavBar = () => {
             <Link
               href="/library"
               className={`font-label text-sm uppercase tracking-wider transition-colors ${
-                pathname === "/library"
+                pathname === "/" || pathname === "/library"
                   ? "text-blue-700 dark:text-blue-400 font-bold border-b-2 border-blue-700"
                   : "text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-300"
               }`}
@@ -27,7 +27,7 @@ export const TopNavBar = () => {
             <Link
               href="/"
               className={`font-label text-sm uppercase tracking-wider transition-colors ${
-                pathname === "/" || pathname === "/practice"
+                pathname === "/practice"
                   ? "text-blue-700 dark:text-blue-400 font-bold border-b-2 border-blue-700"
                   : "text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-300"
               }`}
@@ -48,7 +48,9 @@ export const TopNavBar = () => {
         </div>
         <div className="flex items-center gap-4">
           <div className="hidden sm:flex items-center bg-surface-container-low rounded-full px-4 py-1.5 gap-2 border border-outline-variant/15">
-            <span className="material-symbols-outlined text-outline text-sm">search</span>
+            <span className="material-symbols-outlined text-outline text-sm">
+              search
+            </span>
             <input
               className="bg-transparent border-none focus:outline-none focus:ring-0 text-sm w-48"
               placeholder="Search archives..."
